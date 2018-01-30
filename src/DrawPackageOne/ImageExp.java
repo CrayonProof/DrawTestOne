@@ -62,7 +62,7 @@ public class ImageExp extends JPanel {
 		HandlerClassOne handler = new HandlerClassOne();
 		test.addMouseListener(handler);
 		
-		f.setSize(XDIM, YDIM);
+		f.setSize(XDIM + 30, YDIM + 60);
 		f.setLocation(400, 400);
 		f.setVisible(true);
 
