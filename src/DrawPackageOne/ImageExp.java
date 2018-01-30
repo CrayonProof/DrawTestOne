@@ -22,6 +22,9 @@ public class ImageExp extends JPanel {
 	private static final boolean DEBUG_GRAPHICS_LOADED = false;
 	BufferedImage image;
 	Dimension size = new Dimension();
+	
+	static final int XDIM = 280;
+	static final int YDIM = 280;
 
 	public ImageExp(BufferedImage image) {
 		this.image = image;
@@ -48,10 +51,9 @@ public class ImageExp extends JPanel {
 	
 	public static void main(String[] args) throws IOException {
 		
-		int XDIM = 600;
-		int YDIM = 600;
+
 		String path = System.getProperty("user.dir") + "/legoWorker.jpg";
-		BufferedImage image = ImageIO.read(new File(path));
+		BufferedImage image = new BufferedImage(XDIM, YDIM, 1); //ImageIO.read(new File(path));
 		ImageExp test = new ImageExp(image);
 		MouseTwo f = new MouseTwo();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,7 +76,7 @@ public class ImageExp extends JPanel {
 			int panX = (int) f.getX() + 9;
 			int panY = (int) f.getY() + 50;
 
-			System.out.println(HandlerClassOne.msDown());
+			//System.out.println(HandlerClassOne.msDown());
 			
 			int RADIUS = 10;
 
@@ -84,7 +86,7 @@ public class ImageExp extends JPanel {
 			if ((mouseX > panX) && (mouseY > panY) && (mouseY < panY + YDIM - RADIUS) && (mouseX < panX + YDIM - RADIUS) && HandlerClassOne.msDown()) {
 				for (int li = 0; li < RADIUS; li++) {
 					for (int li2 = 0; li2 < RADIUS; li2++) {
-						image.setRGB(mouseX - panX + li, mouseY - panY + li2, 0);
+						image.setRGB(mouseX - panX + li, mouseY - panY + li2, 16777215);
 					}
 				}
 				//test.getRootPane().revalidate();
