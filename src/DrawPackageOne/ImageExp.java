@@ -40,14 +40,17 @@ public class ImageExp extends JPanel {
 	}
 
 	public static void main(String[] args) throws IOException {
+		
+		int XDIM = 600;
+		int YDIM = 600;
 		String path = System.getProperty("user.dir") + "/legoWorker.jpg";
 		BufferedImage image = ImageIO.read(new File(path));
 		ImageExp test = new ImageExp(image);
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(new JScrollPane(test));
-		f.setSize(400, 400);
-		f.setLocation(200, 200);
+		f.setSize(XDIM, YDIM);
+		f.setLocation(400, 400);
 		f.setVisible(true);
 
 		int mouseX = 0;
@@ -62,10 +65,10 @@ public class ImageExp extends JPanel {
 
 			int RADIUS = 10;
 
-			System.out.println("x: " + mouseX);
-			System.out.println("y: " + mouseY);
+			//System.out.println("x: " + mouseX);
+			//System.out.println("y: " + mouseY);
 
-			if ((mouseX > panX) && (mouseY > panY)) {
+			if ((mouseX > panX) && (mouseY > panY) && (mouseY < panY + YDIM - RADIUS) && (mouseX < panX + YDIM - RADIUS)) {
 				for (int li = 0; li < RADIUS; li++) {
 					for (int li2 = 0; li2 < RADIUS; li2++) {
 						image.setRGB(mouseX - panX + li, mouseY - panY + li2, 0);
