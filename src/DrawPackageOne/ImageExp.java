@@ -86,11 +86,11 @@ public class ImageExp extends JPanel {
 
 			if ((mouseX > panX + RADIUS) && (mouseY > panY + RADIUS) && (mouseY < panY + YDIM - RADIUS) && (mouseX < panX + YDIM - RADIUS) && HandlerClassOne.msDown()) {
 				for (int bi = 0; bi < 1; bi++) {
-					for (int cr = 0; cr < RADIUS; cr++) {
+					for (double cr = 0; cr < RADIUS; cr += .5) {
 						for (int li2 = 0; li2 < 2*cr; li2++) {
 							//image.setRGB(mouseX - panX + li, mouseY - panY + li2, 16777215);
 							
-							xx = -cr + li2;
+							xx =(int)( -cr + (double) li2);
 							image.setRGB(mouseX - panX + xx + bi, mouseY - panY + (int) (Math.sqrt(cr*cr - xx*xx)), 16777215);
 							image.setRGB(mouseX - panX + xx + bi, mouseY - panY - (int) (Math.sqrt(cr*cr - xx*xx)), 16777215);
 							image.setRGB(mouseX - panX + (int) (Math.sqrt(cr*cr - xx*xx)), mouseY - panY + xx + bi, 16777215);
