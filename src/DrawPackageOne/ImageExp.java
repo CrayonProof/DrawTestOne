@@ -83,6 +83,7 @@ public class ImageExp extends JPanel {
 			//System.out.println("x: " + mouseX);
 			//System.out.println("y: " + mouseY);
 			int xx = 0;
+			final int WHITE = 16777215;
 
 			if ((mouseX > panX + RADIUS) && (mouseY > panY + RADIUS) && (mouseY < panY + YDIM - RADIUS) && (mouseX < panX + YDIM - RADIUS) && HandlerClassOne.msDown()) {
 				for (int bi = 0; bi < 1; bi++) {
@@ -91,10 +92,10 @@ public class ImageExp extends JPanel {
 							//image.setRGB(mouseX - panX + li, mouseY - panY + li2, 16777215);
 							
 							xx =(int)( -cr + (double) li2);
-							image.setRGB(mouseX - panX + xx + bi, mouseY - panY + (int) (Math.sqrt(cr*cr - xx*xx)), 16777215);
-							image.setRGB(mouseX - panX + xx + bi, mouseY - panY - (int) (Math.sqrt(cr*cr - xx*xx)), 16777215);
-							image.setRGB(mouseX - panX + (int) (Math.sqrt(cr*cr - xx*xx)), mouseY - panY + xx + bi, 16777215);
-							image.setRGB(mouseX - panX - (int) (Math.sqrt(cr*cr - xx*xx)), mouseY - panY + xx + bi, 16777215);
+							image.setRGB(mouseX - panX + xx + bi, mouseY - panY + (int) (Math.sqrt(cr*cr - xx*xx)), WHITE);
+							image.setRGB(mouseX - panX + xx + bi, mouseY - panY - (int) (Math.sqrt(cr*cr - xx*xx)), WHITE);
+							image.setRGB(mouseX - panX + (int) (Math.sqrt(cr*cr - xx*xx)), mouseY - panY + xx + bi, WHITE);
+							image.setRGB(mouseX - panX - (int) (Math.sqrt(cr*cr - xx*xx)), mouseY - panY + xx + bi, WHITE);
 						}
 					}
 				}
