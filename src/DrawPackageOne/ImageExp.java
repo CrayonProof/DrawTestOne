@@ -2,7 +2,6 @@ package DrawPackageOne;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.MouseInfo;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -63,8 +62,10 @@ public class ImageExp extends JPanel {
 		int mouseY = 0;
 
 		while (true) {
-			mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
-			mouseY = (int) MouseInfo.getPointerInfo().getLocation().getY();
+			mouseX = handler.Y();// (int)
+									// MouseInfo.getPointerInfo().getLocation().getX();
+			mouseY = handler.X();// (int)
+									// MouseInfo.getPointerInfo().getLocation().getY();
 
 			int panX = (int) f.getX() + 9;
 			int panY = (int) f.getY() + 50;
@@ -82,8 +83,7 @@ public class ImageExp extends JPanel {
 					&& HandlerClassOne.msDown()) {
 				for (int li = 0; li < RADIUS; li++) {
 					for (int li2 = 0; li2 < RADIUS; li2++) {
-						image.setRGB(mouseX - panX + li, mouseY - panY + li2,
-								16777215);
+						image.setRGB(mouseX + li, mouseY + li2, 16777215);
 					}
 				}
 				// test.getRootPane().revalidate();
